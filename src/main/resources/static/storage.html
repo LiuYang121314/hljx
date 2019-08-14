@@ -151,7 +151,6 @@
                                 <div class="messTwo reveal">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <span class="banzutips" style="color:red;">*</span>&nbsp;
                                             <span class="input-group-text">班组</span>
                                         </div>
                                         <select class="select2 banzu" data-placeholder="班组"
@@ -348,30 +347,13 @@
                 , type: "POST"
                 , data: $(".weigh").serialize()
                 , success: function (data) {
-                    // data = $.parseJSON(data).data
-                    // if(data.success){
-                    //     location.href="/index";
-                    //     // location.href="/user";
-                    // }
+
                 }
                 , error: function (msg) {
                     console.info(msg);
                 }
             });
         });
-        /*$(".save").click(function () {
-            var name=$(".fDecimal1").val();
-            if (name == '' || name == undefined || name == null){
-                alert("请输入姓名");
-                /!*border: 1px solid red*!/
-                $(".fDecimal1").css('border','red'); //添加css样式
-            }else {
-                $(".fDecimal1").css('borderColor',''); //取消css样式
-            }
-           /!* if ($(".wldm").val() == "") {
-                alert("你有选项漏填了")
-            }*!/
-        })*/
     });
     //<!-- 打印 -->
     $(".print").click(function (event) {

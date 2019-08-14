@@ -127,31 +127,30 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">过磅类型</span>
                                         </div>
-                                        <select class="bangType select2" name="fBase7" data-placeholder="请选择过磅类型">
+                                        <select class="bangType select2 museFill" name="fBase7" data-placeholder="请选择过磅类型">
                                         </select>
                                     </div>
                                     <div class="input-group mb-2 yin">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">物料代码</span>
                                         </div>
-                                        <input type="text" class="form-control wldm" id="wuliao"
+                                        <input type="text" class="form-control wldm museFill" id="wuliao"
                                                placeholder="请输入5位有效字符"/>
                                     </div>
                                     <div class="input-group mb-2 reveal">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">物料名称</span>
                                         </div>
-                                        <input type="text" class="fFullname form-control" readonly="" placeholder="">
+                                        <input type="text" class="fFullname form-control museFill" readonly="" placeholder="">
                                         <div class="input-group-prepend yin">
                                             <span class="input-group-text">规格型号</span>
                                         </div>
-                                        <input type="text" class="fModel form-control yin" readonly="" placeholder="">
+                                        <input type="text" class="fModel form-control yin museFill" readonly="" placeholder="">
                                     </div>
                                 </div>
                                 <div class="messTwo reveal">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <span class="banzutips" style="color:red;">*</span>&nbsp;
                                             <span class="input-group-text">班组</span>
                                         </div>
                                         <select class="select2 banzu" data-placeholder="班组"
@@ -197,32 +196,35 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重</span>
                                         </div>
-                                        <input type="text" class="form-control fDecimal" name="fDecimal"
+                                        <input type="text" class="form-control fDecimal museFill" name="fDecimal"
                                                placeholder="称重">
                                     </div>
                                     <div class="input-group mb-2 yin">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text ">净&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重</span>
                                         </div>
-                                        <input type="text" class="form-control" name="fDecimal1" placeholder="净重">
+                                        <input type="text" class="form-control museFill" name="fDecimal1" placeholder="净重">
                                     </div>
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数</span>
                                         </div>
-                                        <input type="text" class="form-control" name="fQty1" placeholder="件数">
+                                        <input type="text" class="form-control museFill" name="fQty1" placeholder="件数">
                                     </div>
                                     <div class="input-group mb-2 yin">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text ">托盘重</span>
                                         </div>
-                                        <input type="text" class="form-control" name="fDecimal2" placeholder="托盘重量">
+                                        <input type="text" class="form-control museFill" name="fDecimal2" placeholder="托盘重量">
                                         <div class="input-group-append">
                                             <span class="input-group-text">kg</span>
                                         </div>
                                     </div>
                                     <div class="ewm"></div>
                                     <input type="text" class="form-control fItemID" name="fBase" style="display: none"/>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <span class="warning" style="color: red;font-size: 10px"></span>
                                 </div>
                             </div>
                         </form>
@@ -312,12 +314,15 @@
 <script>
     $(function () {
         $('.select2:not(.wldm)').select2();
+        $('.select2:not(.wldm)').select2();
+
         //移除一些select2里的样式
         $(".select2-container").css("flex", "auto");
         $(".select2-container--default .select2-selection--multiple").css("border-top-left-radius", "0").css("border-bottom-left-radius", "0");
         $(".select2-container--default .select2-selection--single").css("display", "block").css("height", "100%")
             .css("border-top-left-radius", "0").css("border-bottom-left-radius", "0");
         $(".select2-selection__arrow").remove();
+
 
 
         $("#wuliao").autocomplete({
@@ -339,65 +344,6 @@
                 );//手工触发chang事件
             }
         });
-
-
-        $(".save").click(function () {
-            console.info($(".weigh").serialize());
-            $.ajax({
-                url: "/tbos/saveWeight"
-                , type: "POST"
-                , data: $(".weigh").serialize()
-                , success: function (data) {
-                    // data = $.parseJSON(data).data
-                    // if(data.success){
-                    //     location.href="/index";
-                    //     // location.href="/user";
-                    // }
-                }
-                , error: function (msg) {
-                    console.info(msg);
-                }
-            });
-        });
-        /*$(".save").click(function () {
-            var name=$(".fDecimal1").val();
-            if (name == '' || name == undefined || name == null){
-                alert("请输入姓名");
-                /!*border: 1px solid red*!/
-                $(".fDecimal1").css('border','red'); //添加css样式
-            }else {
-                $(".fDecimal1").css('borderColor',''); //取消css样式
-            }
-           /!* if ($(".wldm").val() == "") {
-                alert("你有选项漏填了")
-            }*!/
-        })*/
-    });
-    //<!-- 打印 -->
-    $(".print").click(function (event) {
-        $(".main").printThis({
-            debug: false,
-            importCSS: true,
-            importStyle: true,
-            printContainer: true,
-            pageTitle: "商标打印",
-            removeInline: false,
-            printDelay: 333,
-            header: null,
-            formValues: false
-        });
-    });
-    <!--自动生成二维码-->
-    $(document).ready(function () {
-        //实例化
-        var qrcode = new QRCode(
-            //二维码存放的div
-            document.getElementsByClassName("ewm")[0], {
-                width: 125, //设置宽高
-                height: 120
-            });
-        //根据input框的值生成二维码
-        qrcode.makeCode(document.getElementsByClassName("wldm")[0].textContent);
     });
 
 
