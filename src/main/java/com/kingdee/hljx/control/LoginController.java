@@ -107,6 +107,8 @@ public class LoginController {
     @ResponseBody
     @RequestMapping("/session")
     public Object getValueByName(String parameName, HttpSession session) {
+
+        System.out.println();
         return session.getAttribute(parameName.toUpperCase());
     }
 
