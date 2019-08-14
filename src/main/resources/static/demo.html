@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>金蝶 K3 WISE</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="css/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="css/bootstrap-colorpicker.min.css">
+    <!-- Bootstrap time Picker -->
+    <link rel="stylesheet" href="css/bootstrap-timepicker.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="css/select2.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/foot.css">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <div class="card-body main">
+        <div class="card card-default">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <input type="text" name="country" id="autocomplete-dynamic"
+                                   style="width: 100%; border-width: 5px;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="js/jQuery-autocomplete/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/jQuery-autocomplete/jquery.mockjax.js"></script>
+<script type="text/javascript" src="js/select/jquery.autocomplete.js"></script>
+
+<script>
+    $(function () {
+        $("#autocomplete-dynamic").autocomplete({
+            serviceUrl: "/item/icitems",
+            minChars: 5,
+            paramName: "fNumber",
+            deferRequestBy: 1000,
+            noCache: true,
+            onSelect: function (suggestion) {
+                console.log(suggestion.data);
+                $("#autocomplete-dynamic").val(suggestion.data);//赋值物料代码
+                $("#autocomplete-dynamic").change();//手工触发chang事件
+            }
+        });
+    })
+</script>
+
+</body>
+</html>

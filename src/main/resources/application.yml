@@ -1,0 +1,26 @@
+server:
+  port: 9090
+spring:
+  datasource:
+    #    main:
+    #      url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=KDAcctDB
+    #      username: sa
+    #      password: kingdee
+    #      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    hikari:
+      main:
+        jdbc-url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=KDAcctDB
+        username: sa
+        password: 111111
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2008Dialect
+  pattern:
+    level: INFO

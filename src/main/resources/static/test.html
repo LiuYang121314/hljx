@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/jquery.min.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            url: "/tbos/saveWeight"
+            , type: "POST"
+            , data: {
+                "fid": 55222,
+                "fBillNo": "2018012666666",
+                "fBase": 4728,
+                "fQty": 802.0000000000,
+                "fQty1": 1.0000000000,
+                "fBiller": 16411,
+                "fQty2": 800.3960000000,
+                "fBatchNo'": "2018012007016",
+                "fClassID": "200000001",
+                "fQty3": 802.0000000000,
+                "fInteger1": 1,
+                "fDecimal5": 0.0000000000,
+                "fBase8": 0,
+                "fBase7": 0,
+                "fBase9": 0
+            }
+            , async: false
+            , success: function (data) {
+                console.info(data);
+            }
+        });
+    });
+</script>
+</body>
+</html>

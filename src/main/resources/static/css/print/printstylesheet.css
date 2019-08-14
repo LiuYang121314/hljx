@@ -1,0 +1,53 @@
+
+br {
+    display: none;
+}
+
+.form-control {
+    border: 0;
+    border: none;
+    outline: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+}
+
+select {
+    border: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.box {
+    margin: 0 auto;
+}
+
+.yin {
+    display: none !important;
+}
+
+.reveal {
+    display: block;
+}
+
+.input-group {
+    line-height: 40px;
+    height: 40px;
+    border: 1px solid #000;
+}
+
+.main {
+    margin: 0 auto;
+    width: 400px;
+    border: 0px solid #000;
+    position: relative;
+    font-size: 20px;
+}
+
+.ewm {
+    border: 1px solid #000;
+    display: block !important;
+    position: absolute;
+}
